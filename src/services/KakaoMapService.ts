@@ -26,7 +26,7 @@ class KakaoMapService implements KakaoMapServiceProps {
   loadMap() {
     const script = document.createElement('script')
     script.async = true
-    script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=bbb3c9101cba6c438fd765abea932e31&autoload=false'
+    script.src = 'https://dapi.kakao.com/v2/maps/sdk.js?appkey=785039beb98fa410f1c187bbb9cbe63b&autoload=false'
     document.head.appendChild(script)
 
     script.onload = () => {
