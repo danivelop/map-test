@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useEffect } from 'react';
+import KakaoMapService from 'services/KakaoMapService'
 
 function App() {
+  const mapContainer = useRef<HTMLDivElement>(null)
+  const mapService = useRef<KakaoMapService>()
+
+  useEffect(() => {
+    mapService.current = new KakaoMapService(mapContainer.current, 33.450701, 126.570667)
+    mapService.current.loadMap()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div style={{ width: '800px', height: '700px' }} ref={mapContainer} />
   );
 }
 
